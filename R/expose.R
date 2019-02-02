@@ -1,4 +1,16 @@
 
+#' Expose Namespace of a Package
+#'
+#' Expose all objects (including unexported functions and objects) of the
+#' given package.
+#'
+#' @param package Name of the package.
+#' @export
+#' @examples
+#' expose('methods')
+#' search()
+#' detach_exposed()
+#' search()
 expose <- function (package) {
     if (missing(package)) {
         package <- read.dcf("DESCRIPTION")[, "Package"]
@@ -13,6 +25,8 @@ expose <- function (package) {
     invisible(pkgns)
 }
 
+#' @name expose
+#' @export
 detach_exposed <- function(package) {
     if (missing(package))
         names <- grep("^expose:", search(), value = TRUE)
