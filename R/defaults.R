@@ -40,6 +40,12 @@ set_defaults <- function() {
         options(repos = opt_repos)
     }
 
+    # enable autocompletions for package names in `require()`, `library()`
+    utils::rc.settings(ipck = TRUE)
+    # TODO:
+    #utils::rc.settings(func = TRUE)
+    utils::rc.settings(fuzzy = TRUE)
+
     invisible()
 }
 
